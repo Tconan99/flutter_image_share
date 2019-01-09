@@ -1,0 +1,7 @@
+*.iml
+.gradle
+.settings
+.classpath
+.project
+*.iml
+local.properties

@@ -1,0 +1,8 @@
+.idea
+.vscode
+.metadata
+.packages
+*.iml
+pubspec.lock
+build
+.flutter-plugins
