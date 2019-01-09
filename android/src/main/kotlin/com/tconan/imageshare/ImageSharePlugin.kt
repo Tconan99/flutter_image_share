@@ -39,17 +39,17 @@ class ImageSharePlugin(private val registrar: Registrar): MethodCallHandler {
 
   private fun shareImageToGallery(path: String, bmp: Bitmap): Boolean {
     val context = registrar.activeContext().applicationContext
-    // val storePath =  Environment.getExternalStorageDirectory().absolutePath + File.separator + "mr_grid"
+    val storePath =  Environment.getExternalStorageDirectory().absolutePath + File.separator + "mr_grid"
 
-    val file = File(path)
-    val appDir = File(file.getAb)
+    // val file = File(path)
+    val appDir = File(storePath)
 
     if (!appDir.exists()) {
       appDir.mkdir()
     }
 
-    // val fileName = System.currentTimeMillis().toString() + ".png"
-    // val file = File(appDir, fileName)
+     val fileName = System.currentTimeMillis().toString() + ".png"
+     val file = File(appDir, fileName)
     if (!file.exists()) {
       file.createNewFile()
     }

@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
   void _shareImage() async {
     try {
       ByteData byteData = await rootBundle.load('images/image.png');
-      final result = await ImageShare.save(byteData.buffer.asUint8List());
+      final result = await ImageShare.save("", byteData.buffer.asUint8List());
       print(result);
     } on Exception {
       print('Failed to share image to gallery.');
