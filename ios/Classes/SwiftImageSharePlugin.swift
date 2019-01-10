@@ -11,11 +11,14 @@ public class SwiftImageSharePlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    if call.method = "getPlatformVersion" {
+    self.result = result
+    if call.method == "getPlatformVersion" {
       result("iOS " + UIDevice.current.systemVersion)
-    } else if call.method = "saveImageToGallery" {
+    } else if call.method == "shareImageToGallery" {
       if let arguments = (call.arguments as? FlutterStandardTypedData)?.data, let image = UIImage(data: arguments) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(didFinishSaving(image:error:contextInfo:)), nil)
+      } else {
+        result(false)
       }
     } else {
       result(FlutterMethodNotImplemented)
