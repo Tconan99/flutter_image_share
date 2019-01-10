@@ -13,10 +13,7 @@ class ImageShare {
 
   static Future save(String path, Uint8List imageBytes) async {
     assert(imageBytes != null);
-    final result = await _channel.invokeMethod('shareImageToGallery', <String, dynamic>{
-      "path": path,
-      "image": imageBytes
-    });
+    final result = await _channel.invokeMethod('shareImageToGallery', imageBytes);
     return result;
   }
 }

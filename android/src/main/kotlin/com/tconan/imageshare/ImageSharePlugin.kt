@@ -29,9 +29,10 @@ class ImageSharePlugin(private val registrar: Registrar): MethodCallHandler {
     if (call.method == "getPlatformVersion") {
       result.success("Android ${android.os.Build.VERSION.RELEASE}")
     } else if (call.method == "shareImageToGallery") {
-      val path = call.argument("path") as String
-      val image = call.argument("image") as ByteArray
-      result.success(shareImageToGallery(BitmapFactory.decodeByteArray(image, 0, image.size)))
+      // val path = call.argument("path") as String
+      // val image = call.argument("image") as ByteArray
+      var image = call.arguments as ByteArray
+      result.success(shareImageToGallery("", BitmapFactory.decodeByteArray(image, 0, image.size)))
     } else {
       result.notImplemented()
     }
